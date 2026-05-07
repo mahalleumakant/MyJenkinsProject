@@ -1,4 +1,4 @@
-pipeline 
+pipeline {
 agent any
 stages {
     stage('check python version') {
@@ -15,3 +15,4 @@ stages {
     }
     
     }
+}
