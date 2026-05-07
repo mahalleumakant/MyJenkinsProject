@@ -16,7 +16,7 @@ stages {
     stage('buiding docker image') {
         steps {
             echo 'building docker image...'
-            sh 'docker build -t docker.io/mahalleumakant/helloworld:latest .'
+            sh 'docker build -t docker.io/umahalle/helloworld:latest .'
         }
     }
      stage('Docker Login') {
@@ -34,13 +34,13 @@ stages {
         stage('pushing docker image') {
             steps {
                 echo 'pushing docker image...'
-                sh 'docker push docker.io/mahalleumakant/helloworld:latest'
+                sh 'docker push docker.io/umahalle/helloworld:latest'
             }
         }
         stage('container deployment') {
             steps {
                 echo 'deploying container...'
-                sh 'docker run -d --name helloworld docker.io/mahalleumakant/helloworld:latest'
+                sh 'docker run -d --name helloworld docker.io/umahalle/helloworld:latest'
             }
         }
     
