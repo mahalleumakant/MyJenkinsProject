@@ -10,7 +10,7 @@ stages {
     stage('Running python script') {
         steps {
             echo 'Running python script...'
-            sh 'python helloworld.py'
+            sh 'python3 helloworld.py'
         }
     }
     
