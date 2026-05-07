@@ -1,28 +1,17 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Dev') {
-            steps {
-                echo 'I am in Development'
-                echo 'checking git version'
-                sh 'git --version'
-            }
+pipeline 
+agent any
+stages {
+    stage('check python version') {
+        steps {
+            echo 'checking python version...'
+            sh 'python --version'
         }
-         stage('Staging') {
-            steps {
-                echo 'I am in staging'
-                echo 'checking docker version'
-                sh 'docker --version'
-                sh 'docker pull nginx'
-            }
+    }
+    stage('Running python script') {
+        steps {
+            echo 'Running python script...'
+            sh 'python helloworld.py'
         }
-         stage('Prod') {
-            steps {
-                echo 'I am in Production'
-                echo 'listing docker images'
-                sh 'docker images'
-            }
-        }
-   }
-}
+    }
+    
+    }
