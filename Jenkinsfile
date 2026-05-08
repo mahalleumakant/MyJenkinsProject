@@ -44,21 +44,13 @@ stages {
             }
         }
         
-        if success() {
-            stage('notify success') {
-                steps {
-                    echo 'Build and deployment successful!'
-                }
-            }
+    }
+     post {
+        success {
+            echo 'Build and deployment successful!'
         }
-            else {
-                stage('notify failure') {
-                    steps {
-                        echo 'Build or deployment failed.'
-                    }
-                }
-            }
-        
-    
+        failure {
+            echo 'Build or deployment failed.'
+        }
     }
 }
