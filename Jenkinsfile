@@ -43,6 +43,20 @@ stages {
                 sh 'docker run -d --name HelloWorldMsg docker.io/umahalle/helloworld:latest'
             }
         }
+        if success {
+            stage('notify success') {
+                steps {
+                    echo 'Build and deployment successful!'
+                }
+            }
+            else {
+                stage('notify failure') {
+                    steps {
+                        echo 'Build or deployment failed.'
+                    }
+                }
+            }
+        
     
     }
 }
