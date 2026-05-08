@@ -40,7 +40,7 @@ stages {
         stage('container deployment') {
             steps {
                 echo 'deploying container...'
-                sh 'docker run -d --name HelloWorldDemo docker.io/umahalle/helloworld:latest'
+                sh 'docker run -d docker.io/umahalle/helloworld:latest'
             }
         }
         
